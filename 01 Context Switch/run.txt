@@ -1,0 +1,3 @@
+Time taken: 0.523827 seconds
+Iterations: 1000000
+Average time per call: 0.000001 seconds
