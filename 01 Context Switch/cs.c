@@ -1,18 +1,20 @@
 #include <time.h>
 #include <stdio.h>
+#include <sys/syscall.h>
 #include <unistd.h>
 
 int main ( int argc, char *argv[] ) {
 
     // Number of iterations
-    int iterations = 10000000;
+    int iterations = 100000000;
 
     // Measure time
     clock_t start = clock();
 
     // System call loop
     for (int i = 0; i < iterations; i++) {
-        sleep(0);
+        syscall(SYS_getpid);
+        // sleep(0); // if the syscall function doesn't exist or is deprecated
     }
 
     // Messure time
