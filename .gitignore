@@ -40,7 +40,19 @@
 # debug information files
 *.dwo
 
+# JetBrains IDE
+.idea/
+
+# Build directories
+*.build/
+
+# Python venv
+*.venv/
+
+**/__pycache__
+
+
+
 # Project-specific files
 .DS_Store
-.idea
 **/cs
