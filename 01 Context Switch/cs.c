@@ -5,7 +5,7 @@
 int main ( int argc, char *argv[] ) {
 
     // Number of iterations
-    int iterations = 1000000;
+    int iterations = 10000000;
 
     // Measure time
     clock_t start = clock();
@@ -20,6 +20,6 @@ int main ( int argc, char *argv[] ) {
     double time_spent = (double)(end - start) / CLOCKS_PER_SEC;
     printf("Time taken: %f seconds\n", time_spent);
     printf("Iterations: %d\n", iterations);
-    printf("Average time per call: %f seconds\n", time_spent / iterations);
+    printf("Average time per call: %f microseconds\n", (time_spent / iterations) * 1000000);
     return 0;
 }

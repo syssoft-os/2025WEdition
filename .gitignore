@@ -40,4 +40,7 @@
 # debug information files
 *.dwo
 
+# Project-specific files
 .DS_Store
+.idea
+**/cs
