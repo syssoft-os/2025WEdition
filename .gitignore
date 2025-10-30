@@ -56,3 +56,4 @@
 # Project-specific files
 .DS_Store
 **/cs
+**/cs_cpp

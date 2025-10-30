@@ -1,18 +1,33 @@
 CC = gcc
+CXX = g++
 
 CFLAGS = -O3
-TARGET = cs
-SRC = cs.c
+CXXFLAGS = -std=c++11 -O3 -I../Helper/include
+LDFLAGS = -L../Helper/lib -lhelper
 
-all: $(TARGET)
+TARGET_C = cs
+TARGET_CXX = cs_cpp
+SRC_C = cs.c
+SRC_CXX = cs.cpp
 
-$(TARGET): $(SRC)
-	$(CC) $(CFLAGS) -o $(TARGET) $(SRC)
+all: $(TARGET_C) $(TARGET_CXX)
+
+# C version (original)
+$(TARGET_C): $(SRC_C)
+	$(CC) $(CFLAGS) -o $(TARGET_C) $(SRC_C)
+
+# C++ version with stopwatch
+$(TARGET_CXX): $(SRC_CXX)
+	cd ../Helper && $(MAKE)
+	$(CXX) $(CXXFLAGS) -o $(TARGET_CXX) $(SRC_CXX) $(LDFLAGS)
 
 clean:
-	rm -f $(TARGET)
+	rm -f $(TARGET_C) $(TARGET_CXX)
 
-run: $(TARGET)
-	./$(TARGET)
+run: $(TARGET_C)
+	./$(TARGET_C)
 
-.PHONY: all clean run
+run_cpp: $(TARGET_CXX)
+	./$(TARGET_CXX)
+
+.PHONY: all clean run run_cpp

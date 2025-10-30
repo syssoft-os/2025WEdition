@@ -1,0 +1,13 @@
+# Build artifacts
+obj/
+lib/
+*.o
+*.a
+
+# Compiled executables
+example
+*.out
+
+# OS-specific files
+.DS_Store
+Thumbs.db
