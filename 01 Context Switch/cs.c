@@ -14,6 +14,7 @@ int main ( int argc, char *argv[] ) {
     // System call loop
     for (int i = 0; i < iterations; i++) {
         syscall(SYS_getpid);
+        // sleep(0); // if the syscall function doesn't exist or is deprecated
     }
 
     // Messure time
