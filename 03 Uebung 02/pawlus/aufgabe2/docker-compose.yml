@@ -1,0 +1,36 @@
+services:
+  office:
+    build: .
+    stop_grace_period: 1s
+    container_name: office
+    command: office.py
+
+  santa:
+    build: .
+    stop_grace_period: 1s
+    container_name: santa
+    command: santa.py
+    depends_on:
+      - office
+
+  reindeer:
+    build: .
+    stop_grace_period: 1s
+    deploy:
+      replicas: 9
+    environment:
+      - ROLE=reindeer
+    command: actor.py
+    depends_on:
+      - office
+
+  elf:
+    build: .
+    stop_grace_period: 1s
+    deploy:
+      replicas: 10
+    environment:
+      - ROLE=elf
+    command: actor.py
+    depends_on:
+      - office
