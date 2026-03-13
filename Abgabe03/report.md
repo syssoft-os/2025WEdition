@@ -2,15 +2,15 @@
 
 ## Generelles
 
-Zur Arbeit mit dem ZFS Dateisystem hab ich mithilfe von Linux' `virt-manager` eine vituelle Maschine mit dem Ubuntu Server 24.04.4 Image erstellt. Über ssh habe ich mich dann von meinem Host.System mit der VM verbunden und die notwendigen Pakete installiert sowie Dateien übertragen.
+Zur Arbeit mit dem ZFS-Dateisystem hab ich mithilfe von Linux' `virt-manager` eine virtuelle Maschine mit dem Ubuntu Server 24.04.4-Image erstellt. Über SSH habe ich mich dann von meinem Host-Systems mit der VM verbunden und die notwendigen Pakete installiert sowie Dateien übertragen.
 
 ## Aufgabe 1
 
-Zur Erstellung von Sicherungen hab ich in Zusammenarbeit mit der KI meines Vertrauens ein python script geschrieben, welches die ZFS Befehle über die `subprocess.run`ausführt. Folgende Parameter können über eine `config.json` angepasst werden: `source_dataset`, `backup_location`, `max_backups`, `snapshot_prefix` und `pool_name`. Ich habe hier direkt ab Aufgabe 1 mit einem ZFS-Pool gearbeitet, dafür habe ich der VM insgesamt 4 weitere 5GB Platten hinzugefügt und mit `zpool create backuppool raidz /dev/vdb /dev/vdc /dev/vdd /dev/vde` einen Pool erstellt.
+Zur Erstellung von Sicherungen hab ich in Zusammenarbeit mit der KI meines Vertrauens ein Python-Skript geschrieben, welches die ZFS-Befehle über `subprocess.run` ausführt. Folgende Parameter können über eine `config.json` angepasst werden: `source_dataset`, `backup_location`, `max_backups`, `snapshot_prefix` und `pool_name`. Ich habe hier direkt ab Aufgabe 1 mit einem ZFS-Pool gearbeitet; dafür habe ich der VM insgesamt 4 weitere 5-GB-Platten hinzugefügt und mit `zpool create backuppool raidz /dev/vdb /dev/vdc /dev/vdd /dev/vde` einen Pool erstellt.
 
-Bei Ausführung des Script erstellt es automatisch Snapshots, des in der config angegebenen Datasets, überträgt diese in das Backup-Verzeichnis und verwaltet die Anzahl der Sicherungen entsprechend der Konfiguration. Es bietet auch die Möglichkeit, Sicherungen wiederherzustellen und eine Liste aller vorhandenen Snapshots anzuzeigen.
+Bei Ausführung des Skripts erstellt es automatisch Snapshots des in der `config.json` angegebenen Datasets, überträgt diese in das Backup-Verzeichnis und verwaltet die Anzahl der Sicherungen entsprechend der Konfiguration. Es bietet auch die Möglichkeit, Sicherungen wiederherzustellen und eine Liste aller vorhandenen Snapshots anzuzeigen.
 
-Das script kann mit folgenden Flags ausgeführt werden:
+Das Skript kann mit folgenden Flags ausgeführt werden:
 
 ```bash
 usage: zfs_backup.py [-h] [--config CONFIG] [--create-config] [--status] [--restore FILE] [--list-snapshots]
@@ -49,7 +49,7 @@ Verhindern könnte man das Problem durch Einfrieren solcher Applikationen währe
 
 ## Aufgabe 3
 
-Zum Test habe ich wieder das time logger Script aus Aufgabe 2 verwendet. Ich habe das Script gestartet, während ich in einer anderen Terminalinstanz den Status des ZFS-Pools mit `watch -n 1 sudo zpool status` überwacht habe. Dann habe ich eine der Platten des Pools in der VM-Konfiguration entfernt. Im Statusüberwachungsfenster konnte ich sofort sehen wie der pool in den `DEGRADED` Zustand wechselt, während das Scipt einfach weitergelaufen ist.
+Zum Test habe ich wieder das `time_logger`-Skript aus Aufgabe 2 verwendet. Ich habe das Skript gestartet, während ich in einer anderen Terminalinstanz den Status des ZFS-Pools mit `watch -n 1 sudo zpool status` überwacht habe. Dann habe ich eine der Platten des Pools in der VM-Konfiguration entfernt. Im Statusüberwachungsfenster konnte ich sofort sehen, wie der Pool in den `DEGRADED`-Zustand wechselt, während das Skript einfach weitergelaufen ist.
 
 <div style="display: grid; grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1rem;">
   <img src="./Aufgabe3/degraded.png" alt="" style="width: 100%;">
@@ -57,10 +57,10 @@ Zum Test habe ich wieder das time logger Script aus Aufgabe 2 verwendet. Ich hab
 
 ## Aufagbe 4
 
-Um ein Ausgegliches Spiefeld zu schaffen, habe zwei komplett neue VMs mit identischer Konfiguration erstellt (4GB RAM, 2 Kerne, 20GB Platte). Auf der ZSF-VM habe ich einen neuen Pool mit der einen 20GB Platte erstellt. Auf der ext4-VM habe ich die 20GB Platte mit `mkfs.ext4` formatiert und in das Dateisystem eingebunden.
+Um ein ausgeglichenes Spielfeld zu schaffen, habe ich zwei komplett neue VMs mit identischer Konfiguration erstellt (4 GB RAM, 2 Kerne, 20 GB Platte). Auf der ZFS-VM habe ich einen neuen Pool mit einer 20-GB-Platte erstellt. Auf der ext4-VM habe ich die 20-GB-Platte mit `mkfs.ext4` formatiert und in das Dateisystem eingebunden.
 Zum Benchmarking habe ich das `fio` Tool verwendet, welches ich auf beiden VMs installiert habe.
 
-In meinem `run_benchmark`-Skript habe ich zwei Testszenarien konfiguriert.Das Skript simuliert zwei verschiedene, praxisnahe Belastungsszenarien, um sowohl den maximalen Durchsatz (Bandbreite in MB/s) als auch die Verarbeitungsgeschwindigkeit von kleinen Datenblöcken (IOPS) zu messen.
+In meinem `run_benchmark`-Skript habe ich zwei Testszenarien konfiguriert. Das Skript simuliert zwei verschiedene, praxisnahe Belastungsszenarien, um sowohl den maximalen Durchsatz (Bandbreite in MB/s) als auch die Verarbeitungsgeschwindigkeit von kleinen Datenblöcken (IOPS) zu messen.
 
 ### Test 1: Sequentielles Schreiben (Fokus auf Durchsatz)
 
