@@ -1,0 +1,39 @@
+franz@franz-VirtualBox:/media/sf_bung03$ grep -H "READ: bw=" artifacts/aufgabe4/run*_*/*.txt
+grep -H "WRITE: bw=" artifacts/aufgabe4/run*_*/*.txt
+grep -H "IOPS=" artifacts/aufgabe4/run*_*/zfs_randrw_4k.txt artifacts/aufgabe4/run*_*/ext4_randrw_4k.txt
+artifacts/aufgabe4/run1_ext4/ext4_randrw_4k.txt:   READ: bw=5246KiB/s (5372kB/s), 5246KiB/s-5246KiB/s (5372kB/s-5372kB/s), io=257MiB (269MB), run=50101-50101msec
+artifacts/aufgabe4/run1_ext4/ext4_seq_read.txt:   READ: bw=1036MiB/s (1087MB/s), 1036MiB/s-1036MiB/s (1087MB/s-1087MB/s), io=1024MiB (1074MB), run=988-988msec
+artifacts/aufgabe4/run1_zfs/zfs_randrw_4k.txt:   READ: bw=4771KiB/s (4886kB/s), 4771KiB/s-4771KiB/s (4886kB/s-4886kB/s), io=257MiB (269MB), run=55089-55089msec
+artifacts/aufgabe4/run1_zfs/zfs_seq_read.txt:   READ: bw=464MiB/s (486MB/s), 464MiB/s-464MiB/s (486MB/s-486MB/s), io=1024MiB (1074MB), run=2209-2209msec
+artifacts/aufgabe4/run2_ext4/ext4_randrw_4k.txt:   READ: bw=5183KiB/s (5307kB/s), 5183KiB/s-5183KiB/s (5307kB/s-5307kB/s), io=257MiB (269MB), run=50714-50714msec
+artifacts/aufgabe4/run2_ext4/ext4_seq_read.txt:   READ: bw=1082MiB/s (1135MB/s), 1082MiB/s-1082MiB/s (1135MB/s-1135MB/s), io=1024MiB (1074MB), run=946-946msec
+artifacts/aufgabe4/run2_zfs/zfs_randrw_4k.txt:   READ: bw=5128KiB/s (5251kB/s), 5128KiB/s-5128KiB/s (5251kB/s-5251kB/s), io=257MiB (269MB), run=51261-51261msec
+artifacts/aufgabe4/run2_zfs/zfs_seq_read.txt:   READ: bw=481MiB/s (505MB/s), 481MiB/s-481MiB/s (505MB/s-505MB/s), io=1024MiB (1074MB), run=2127-2127msec
+artifacts/aufgabe4/run3_ext4/ext4_randrw_4k.txt:   READ: bw=5177KiB/s (5301kB/s), 5177KiB/s-5177KiB/s (5301kB/s-5301kB/s), io=257MiB (269MB), run=50777-50777msec
+artifacts/aufgabe4/run3_ext4/ext4_seq_read.txt:   READ: bw=1208MiB/s (1266MB/s), 1208MiB/s-1208MiB/s (1266MB/s-1266MB/s), io=1024MiB (1074MB), run=848-848msec
+artifacts/aufgabe4/run3_zfs/zfs_randrw_4k.txt:   READ: bw=5269KiB/s (5395kB/s), 5269KiB/s-5269KiB/s (5395kB/s-5395kB/s), io=257MiB (269MB), run=49890-49890msec
+artifacts/aufgabe4/run3_zfs/zfs_seq_read.txt:   READ: bw=469MiB/s (491MB/s), 469MiB/s-469MiB/s (491MB/s-491MB/s), io=1024MiB (1074MB), run=2185-2185msec
+artifacts/aufgabe4/run1_ext4/ext4_randrw_4k.txt:  WRITE: bw=5218KiB/s (5343kB/s), 5218KiB/s-5218KiB/s (5343kB/s-5343kB/s), io=255MiB (268MB), run=50101-50101msec
+artifacts/aufgabe4/run1_ext4/ext4_seq_write.txt:  WRITE: bw=999MiB/s (1048MB/s), 999MiB/s-999MiB/s (1048MB/s-1048MB/s), io=1024MiB (1074MB), run=1025-1025msec
+artifacts/aufgabe4/run1_zfs/zfs_randrw_4k.txt:  WRITE: bw=4746KiB/s (4860kB/s), 4746KiB/s-4746KiB/s (4860kB/s-4860kB/s), io=255MiB (268MB), run=55089-55089msec
+artifacts/aufgabe4/run1_zfs/zfs_seq_write.txt:  WRITE: bw=260MiB/s (272MB/s), 260MiB/s-260MiB/s (272MB/s-272MB/s), io=1024MiB (1074MB), run=3944-3944msec
+artifacts/aufgabe4/run2_ext4/ext4_randrw_4k.txt:  WRITE: bw=5155KiB/s (5279kB/s), 5155KiB/s-5155KiB/s (5279kB/s-5279kB/s), io=255MiB (268MB), run=50714-50714msec
+artifacts/aufgabe4/run2_ext4/ext4_seq_write.txt:  WRITE: bw=2040MiB/s (2139MB/s), 2040MiB/s-2040MiB/s (2139MB/s-2139MB/s), io=1024MiB (1074MB), run=502-502msec
+artifacts/aufgabe4/run2_zfs/zfs_randrw_4k.txt:  WRITE: bw=5100KiB/s (5222kB/s), 5100KiB/s-5100KiB/s (5222kB/s-5222kB/s), io=255MiB (268MB), run=51261-51261msec
+artifacts/aufgabe4/run2_zfs/zfs_seq_write.txt:  WRITE: bw=282MiB/s (296MB/s), 282MiB/s-282MiB/s (296MB/s-296MB/s), io=1024MiB (1074MB), run=3632-3632msec
+artifacts/aufgabe4/run3_ext4/ext4_randrw_4k.txt:  WRITE: bw=5149KiB/s (5272kB/s), 5149KiB/s-5149KiB/s (5272kB/s-5272kB/s), io=255MiB (268MB), run=50777-50777msec
+artifacts/aufgabe4/run3_ext4/ext4_seq_write.txt:  WRITE: bw=2103MiB/s (2205MB/s), 2103MiB/s-2103MiB/s (2205MB/s-2205MB/s), io=1024MiB (1074MB), run=487-487msec
+artifacts/aufgabe4/run3_zfs/zfs_randrw_4k.txt:  WRITE: bw=5240KiB/s (5366kB/s), 5240KiB/s-5240KiB/s (5366kB/s-5366kB/s), io=255MiB (268MB), run=49890-49890msec
+artifacts/aufgabe4/run3_zfs/zfs_seq_write.txt:  WRITE: bw=269MiB/s (282MB/s), 269MiB/s-269MiB/s (282MB/s-282MB/s), io=1024MiB (1074MB), run=3802-3802msec
+artifacts/aufgabe4/run1_zfs/zfs_randrw_4k.txt:  read: IOPS=1192, BW=4771KiB/s (4886kB/s)(257MiB/55089msec)
+artifacts/aufgabe4/run1_zfs/zfs_randrw_4k.txt:  write: IOPS=1186, BW=4746KiB/s (4860kB/s)(255MiB/55089msec); 0 zone resets
+artifacts/aufgabe4/run2_zfs/zfs_randrw_4k.txt:  read: IOPS=1281, BW=5128KiB/s (5251kB/s)(257MiB/51261msec)
+artifacts/aufgabe4/run2_zfs/zfs_randrw_4k.txt:  write: IOPS=1275, BW=5100KiB/s (5222kB/s)(255MiB/51261msec); 0 zone resets
+artifacts/aufgabe4/run3_zfs/zfs_randrw_4k.txt:  read: IOPS=1317, BW=5269KiB/s (5395kB/s)(257MiB/49890msec)
+artifacts/aufgabe4/run3_zfs/zfs_randrw_4k.txt:  write: IOPS=1310, BW=5240KiB/s (5366kB/s)(255MiB/49890msec); 0 zone resets
+artifacts/aufgabe4/run1_ext4/ext4_randrw_4k.txt:  read: IOPS=1311, BW=5246KiB/s (5372kB/s)(257MiB/50101msec)
+artifacts/aufgabe4/run1_ext4/ext4_randrw_4k.txt:  write: IOPS=1304, BW=5218KiB/s (5343kB/s)(255MiB/50101msec); 0 zone resets
+artifacts/aufgabe4/run2_ext4/ext4_randrw_4k.txt:  read: IOPS=1295, BW=5183KiB/s (5307kB/s)(257MiB/50714msec)
+artifacts/aufgabe4/run2_ext4/ext4_randrw_4k.txt:  write: IOPS=1288, BW=5155KiB/s (5279kB/s)(255MiB/50714msec); 0 zone resets
+artifacts/aufgabe4/run3_ext4/ext4_randrw_4k.txt:  read: IOPS=1294, BW=5177KiB/s (5301kB/s)(257MiB/50777msec)
+artifacts/aufgabe4/run3_ext4/ext4_randrw_4k.txt:  write: IOPS=1287, BW=5149KiB/s (5272kB/s)(255MiB/50777msec); 0 zone resets
