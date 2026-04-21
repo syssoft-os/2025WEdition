@@ -43,6 +43,9 @@
 # JetBrains IDE
 .idea/
 
+#VSCode IDE
+.vscode/
+
 # Build directories
 *.build/
 

@@ -1,0 +1,134 @@
+services:
+  santa:
+    build: .
+    container_name: santa
+    command: python santa.py
+    environment:
+      - PYTHONUNBUFFERED=1
+    networks:
+      - northpole
+
+  elf:
+    build: .
+    command: python elf.py
+    deploy:
+      replicas: 15
+    environment:
+      - SANTA_HOST=santa
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - santa
+    networks:
+      - northpole
+
+  dasher:
+    build: .
+    command: python reindeer.py
+    environment:
+      - REINDEER_NAME=Dasher
+      - SANTA_HOST=santa
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - santa
+    networks:
+      - northpole
+
+  dancer:
+    build: .
+    command: python reindeer.py
+    environment:
+      - REINDEER_NAME=Dancer
+      - SANTA_HOST=santa
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - santa
+    networks:
+      - northpole
+
+  prancer:
+    build: .
+    command: python reindeer.py
+    environment:
+      - REINDEER_NAME=Prancer
+      - SANTA_HOST=santa
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - santa
+    networks:
+      - northpole
+
+  vixen:
+    build: .
+    command: python reindeer.py
+    environment:
+      - REINDEER_NAME=Vixen
+      - SANTA_HOST=santa
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - santa
+    networks:
+      - northpole
+
+  comet:
+    build: .
+    command: python reindeer.py
+    environment:
+      - REINDEER_NAME=Comet
+      - SANTA_HOST=santa
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - santa
+    networks:
+      - northpole
+
+  cupid:
+    build: .
+    command: python reindeer.py
+    environment:
+      - REINDEER_NAME=Cupid
+      - SANTA_HOST=santa
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - santa
+    networks:
+      - northpole
+
+  donner:
+    build: .
+    command: python reindeer.py
+    environment:
+      - REINDEER_NAME=Donner
+      - SANTA_HOST=santa
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - santa
+    networks:
+      - northpole
+
+  blitzen:
+    build: .
+    command: python reindeer.py
+    environment:
+      - REINDEER_NAME=Blitzen
+      - SANTA_HOST=santa
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - santa
+    networks:
+      - northpole
+
+  rudolph:
+    build: .
+    command: python reindeer.py
+    environment:
+      - REINDEER_NAME=Rudolph
+      - SANTA_HOST=santa
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - santa
+    networks:
+      - northpole
+
+networks:
+  northpole:
+    driver: bridge

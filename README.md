@@ -29,6 +29,7 @@ make
 ```
 
 Link in your programs:
+
 ```bash
 g++ -std=c++11 -IHelper/include your_program.cpp -LHelper/lib -lhelper -o your_program
 ```
@@ -60,6 +61,7 @@ This folder contains experiments to measure the cost of context switches and sys
 ### Usage
 
 Compile and run the C version:
+
 ```bash
 cd "01 Context Switch"
 make cs
@@ -67,6 +69,7 @@ make cs
 ```
 
 Compile and run the C++ version (with Stopwatch):
+
 ```bash
 cd "01 Context Switch"
 make cs_cpp
@@ -74,16 +77,64 @@ make cs_cpp
 ```
 
 Build both versions:
+
 ```bash
 cd "01 Context Switch"
 make all
 ```
 
 Or use the Python wrapper (requires gcc/g++):
+
 ```bash
 cd "01 Context Switch/Python Wrapper"
 pip install -r requirements.txt
 python cs.py
 ```
 
+## 03 Active Waiting
 
+This folder contains experiments to measure the cost of active waiting for systems witch mach kernel.
+
+### Content
+
+- **aw.c**: Original C program that measures the average time of active waiting.
+
+### Variations
+
+- aw_atomic (C11 `atomic_flag`)
+- aw_unfair (`os_unfair_lock`)
+
+### Compiling
+
+```bash
+cd "03 Active Waiting"
+make all
+```
+
+### Usage
+
+```bash
+# default 10 M iterations
+./aw_atomic
+./aw_unfair
+
+# with CSV-output
+./aw_atomic --csv res_atomic.csv 5000000
+./aw_unfair --csv res_unfair.csv 5000000
+```
+
+### Output
+
+- Mean, Min, Max, Stddev in nano seconds
+- 95 % CI
+- optional CSV
+
+## 10 Santa Mutex
+
+Programm code for project 2 exercise 1 is found here. Simply run with python.
+
+## 11 Santa Docker
+
+Project 2 exercise 2 code is in here.
+
+Run with docker-compose up --build
