@@ -1,0 +1,238 @@
+services:
+  santa:
+    build: .
+    container_name: santa
+    command: python -u santa/main.py
+    networks:
+      - northpole_net
+    ports:
+      - "5555:5555"
+
+  elf1:
+    build: .
+    container_name: elf1
+    command: python -u elf/main.py --id 1
+    depends_on:
+      - santa
+    networks:
+      - northpole_net
+
+  elf2:
+    build: .
+    container_name: elf2
+    command: python -u elf/main.py --id 2
+    depends_on:
+      - santa
+    networks:
+      - northpole_net
+
+  elf3:
+    build: .
+    container_name: elf3
+    command: python -u elf/main.py --id 3
+    depends_on:
+      - santa
+    networks:
+      - northpole_net
+
+  elf4:
+    build: .
+    container_name: elf4
+    command: python -u elf/main.py --id 4
+    depends_on:
+      - santa
+    networks:
+      - northpole_net
+
+  elf5:
+    build: .
+    container_name: elf5
+    command: python -u elf/main.py --id 5
+    depends_on:
+      - santa
+    networks:
+      - northpole_net
+
+  elf6:
+    build: .
+    container_name: elf6
+    command: python -u elf/main.py --id 6
+    depends_on:
+      - santa
+    networks:
+      - northpole_net
+
+  elf7:
+    build: .
+    container_name: elf7
+    command: python -u elf/main.py --id 7
+    depends_on:
+      - santa
+    networks:
+      - northpole_net
+
+  elf8:
+    build: .
+    container_name: elf8
+    command: python -u elf/main.py --id 8
+    depends_on:
+      - santa
+    networks:
+      - northpole_net
+
+  elf9:
+    build: .
+    container_name: elf9
+    command: python -u elf/main.py --id 9
+    depends_on:
+      - santa
+    networks:
+      - northpole_net
+
+  elf10:
+    build: .
+    container_name: elf10
+    command: python -u elf/main.py --id 10
+    depends_on:
+      - santa
+    networks:
+      - northpole_net
+
+  elf11:
+    build: .
+    container_name: elf11
+    command: python -u elf/main.py --id 11
+    depends_on:
+      - santa
+    networks:
+      - northpole_net
+
+  elf12:
+    build: .
+    container_name: elf12
+    command: python -u elf/main.py --id 12
+    depends_on:
+      - santa
+    networks:
+      - northpole_net
+
+  elf13:
+    build: .
+    container_name: elf13
+    command: python -u elf/main.py --id 13
+    depends_on:
+      - santa
+    networks:
+      - northpole_net
+
+  elf14:
+    build: .
+    container_name: elf14
+    command: python -u elf/main.py --id 14
+    depends_on:
+      - santa
+    networks:
+      - northpole_net
+
+  elf15:
+    build: .
+    container_name: elf15
+    command: python -u elf/main.py --id 15
+    depends_on:
+      - santa
+    networks:
+      - northpole_net
+
+  rentier1:
+    build: .
+    container_name: rentier1
+    command: python -u rentier/main.py --id 1
+    depends_on:
+      - santa
+    networks:
+      - northpole_net
+
+  rentier2:
+    build: .
+    container_name: rentier2
+    command: python -u rentier/main.py --id 2
+    depends_on:
+      - santa
+    networks:
+      - northpole_net
+
+  rentier3:
+    build: .
+    container_name: rentier3
+    command: python -u rentier/main.py --id 3
+    depends_on:
+      - santa
+    networks:
+      - northpole_net
+
+  rentier4:
+    build: .
+    container_name: rentier4
+    command: python -u rentier/main.py --id 4
+    depends_on:
+      - santa
+    networks:
+      - northpole_net
+
+  rentier5:
+    build: .
+    container_name: rentier5
+    command: python -u rentier/main.py --id 5
+    depends_on:
+      - santa
+    networks:
+      - northpole_net
+
+  rentier6:
+    build: .
+    container_name: rentier6
+    command: python -u rentier/main.py --id 6
+    depends_on:
+      - santa
+    networks:
+      - northpole_net
+
+  rentier7:
+    build: .
+    container_name: rentier7
+    command: python -u rentier/main.py --id 7
+    depends_on:
+      - santa
+    networks:
+      - northpole_net
+
+  rentier8:
+    build: .
+    container_name: rentier8
+    command: python -u rentier/main.py --id 8
+    depends_on:
+      - santa
+    networks:
+      - northpole_net
+
+  rentier9:
+    build: .
+    container_name: rentier9
+    command: python -u rentier/main.py --id 9
+    depends_on:
+      - santa
+    networks:
+      - northpole_net
+
+  rentier10:
+    build: .
+    container_name: rentier10
+    command: python -u rentier/main.py --id 10
+    depends_on:
+      - santa
+    networks:
+      - northpole_net
+
+networks:
+  northpole_net:
+    driver: bridge
