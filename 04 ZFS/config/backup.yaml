@@ -1,0 +1,5 @@
+backups:
+  - source_dataset: backuppool/source
+    destination_path: /2025WEdition/aufgabe1/backup
+    max_backups: 5
+    interval_seconds: 10
