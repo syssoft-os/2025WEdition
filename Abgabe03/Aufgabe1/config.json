@@ -1,0 +1,7 @@
+{
+    "source_dataset": "tank/data",
+    "backup_location": "/tmp/zfs_backups",
+    "max_backups": 5,
+    "snapshot_prefix": "backup_",
+    "pool_name": "tank"
+}

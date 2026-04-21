@@ -1,0 +1,30 @@
+services:
+    santa:
+        build: .
+        command: python santa.py
+        environment:
+            - R_COUNT=9
+            - P_COUNT=3
+            - PYTHONUNBUFFERED=1
+
+    reindeer:
+        build: .
+        environment:
+            - ROLE=REINDEER
+            - SANTA_HOST=santa
+            - PYTHONUNBUFFERED=1
+        deploy:
+            replicas: 9 # r Rentiere
+        depends_on:
+            - santa
+
+    elf:
+        build: .
+        environment:
+            - ROLE=ELF
+            - SANTA_HOST=santa
+            - PYTHONUNBUFFERED=1
+        deploy:
+            replicas: 10 # e Elfen
+        depends_on:
+            - santa
